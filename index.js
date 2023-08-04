@@ -1,11 +1,14 @@
+// Importação do módulo que contém o array de jobs;
 const jobs = require('./input.js');
 
+// Função que transforma de string para number o valor do campo 'Tempo estimado';
 function transformTimeStringToNumber(timeString) {
   const timeParts = timeString.split(' ');
   const hours = parseInt(timeParts[0]);
   return hours;
 }
 
+// Função principal, atribui este nome pois acredito que se trata da divisão de tarefas que podem ser realizadas durante um dia de trabalho;
 function getDayJobs(jobs) {
   const groupedJobs = [[]];
 
@@ -29,8 +32,8 @@ function getDayJobs(jobs) {
     }
   }
 
+  // Retorno da função, que contém os grupos de trabalhos que podem ser realizados durante um tempo estimado de 8 horas;
   return groupedJobs;
 }
 
 console.log(getDayJobs(jobs));
-getDayJobs(jobs);
