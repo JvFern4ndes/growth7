@@ -8,11 +8,20 @@ function transformTimeStringToNumber(timeString) {
   return hours;
 }
 
+// Função que converte de string para number o valor do campo 'Data Máxima de conclusão';
+function convertStringToDate(dateString) {
+  const timestamp = Date.parse(dateString);
+
+  return timestamp;
+}
+
 // Função principal, atribui este nome pois acredito que se trata da divisão de tarefas que podem ser realizadas durante um dia de trabalho;
 function getDayJobs(jobs) {
+  const sortedJobs = jobs.sort((a, b) => convertStringToDate(a['Data Máxima de conclusão']) - convertStringToDate(b['Data Máxima de conclusão']));
+
   const groupedJobs = [[]];
 
-  for (const job of jobs) {
+  for (const job of sortedJobs) {
     let addedToGroup = false;
     const jobTime = transformTimeStringToNumber(job['Tempo estimado']);
 

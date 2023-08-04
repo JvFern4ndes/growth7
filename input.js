@@ -2,7 +2,7 @@ module.exports = [
   {
     "ID": 1,
 		"Descrição": "Implantação de API", 
-		"Data Máxima de conclusão": '2023-08-04 12:00:00', 
+		"Data Máxima de conclusão": '2023-08-25 12:00:00', 
 		"Tempo estimado": '8 horas'
   },
   {
@@ -38,7 +38,7 @@ module.exports = [
   {
     "ID": 7,
 		"Descrição": "Refatoração e melhoria de código existente", 
-		"Data Máxima de conclusão": '2023-08-10 12:00:00', 
+		"Data Máxima de conclusão": '2023-08-20 12:00:00', 
 		"Tempo estimado": '8 horas'
   },
   {
