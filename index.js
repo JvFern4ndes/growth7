@@ -1,22 +1,16 @@
 // Importação do módulo que contém o array de jobs;
 const jobs = require('./input.js');
 
-// Função que transforma de string para number o valor do campo 'Tempo estimado';
-function transformTimeStringToNumber(timeString) {
-  const timeParts = timeString.split(' ');
-  const hours = parseInt(timeParts[0]);
-  return hours;
-}
-
-// Função que converte de string para number o valor do campo 'Data Máxima de conclusão';
-function convertStringToDate(dateString) {
-  const timestamp = Date.parse(dateString);
-
-  return timestamp;
-}
+// Importação das funções auxiliares;
+const transformTimeStringToNumber = require('./utils/transformTimeStringToNumber.js');
+const convertStringToDate = require('./utils/convertStringToDate.js');
 
 // Função principal, atribui este nome pois acredito que se trata da divisão de tarefas que podem ser realizadas durante um dia de trabalho;
 function getDayJobs(jobs) {
+  if (!jobs) {
+    return [];
+  }
+
   const sortedJobs = jobs.sort((a, b) => convertStringToDate(a['Data Máxima de conclusão']) - convertStringToDate(b['Data Máxima de conclusão']));
 
   const groupedJobs = [[]];
@@ -46,3 +40,5 @@ function getDayJobs(jobs) {
 }
 
 console.log(getDayJobs(jobs));
+
+module.exports = getDayJobs;
